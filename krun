@@ -1,0 +1,3 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+exec k0s kubectl run $*

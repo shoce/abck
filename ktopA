@@ -1,0 +1,2 @@
+#!/bin/rc
+k top pod --containers=true --sort-by=memory -A

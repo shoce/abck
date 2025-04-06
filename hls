@@ -1,0 +1,4 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+args = $*
+exec helm ls -a $args

@@ -1,0 +1,5 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+args = $*
+if (~ $#* 0) { args = 'pod,deployment,statefulset,cronjob,job' }
+exec k0s kubectl get -A $args

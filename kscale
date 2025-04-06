@@ -1,0 +1,5 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+replicas = $1
+shift
+exec k0s kubectl scale --replicas=$replicas $*
