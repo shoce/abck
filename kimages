@@ -1,0 +1,6 @@
+#!/bin/rc
+
+KUBECONFIG=/root/.kube/config
+
+k0s kubectl get pods -o jsonpath='{range .items[*]}{.metadata.namespace}{"\t"}{.metadata.name}{"\t"}{.spec.containers[*].image}{"\n"}{end}'
+
