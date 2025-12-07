@@ -1,0 +1,6 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+namespace = $1
+shift
+args = $*
+exec k0s kubectl exec -q -n $namespace $args
