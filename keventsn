@@ -1,0 +1,6 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+namespace = $1
+shift
+args = $*
+k0s kubectl events -n $namespace $args | tail -n 22
