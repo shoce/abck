@@ -1,0 +1,6 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+namespace = $1
+shift
+args = $*
+k top pod --containers=true --sort-by=memory -n $namespace $args
