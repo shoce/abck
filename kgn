@@ -3,5 +3,6 @@ KUBECONFIG=/root/.kube/config
 namespace = $1
 shift
 args = $*
-if (~ $#* 0) { args = 'pod,deployment,statefulset,cronjob,job' }
+if (~ $#* 0) { args = 'pod' }
 exec k0s kubectl get -n $namespace $args
+
