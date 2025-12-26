@@ -1,0 +1,6 @@
+#!/bin/rc
+KUBECONFIG=/root/.kube/config
+namespace = $1
+shift
+args = $*
+exec helm del -n $namespace $args
