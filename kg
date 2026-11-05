@@ -1,7 +1,7 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
 sortby = '{.metadata.creationTimestamp}' ;
-columns = 'CREATED:.metadata.creationTimestamp,NAMESPACE:.metadata.namespace,NAME:.metadata.name,STATUS:.status.phase,READY:.status.containerStatuses[*].ready,RESTARTS:.status.containerStatuses[*].restartCount'
+columns = 'CREATED:.metadata.creationTimestamp,NAMESPACE:.metadata.namespace,KIND:.kind,NAME:.metadata.name,STATUS:.status.phase,READY:.status.containerStatuses[*].ready,RESTARTS:.status.containerStatuses[*].restartCount' ;
 args = $* ;
 if (~ $#* 0) { args = 'pod,deploy,sts,job' } ;
 exec kubectl get --sort-by=$sortby -o custom-columns=$columns $args
