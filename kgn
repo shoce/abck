@@ -3,5 +3,5 @@
 namespace = $1 ; shift ; 
 args = $*; 
 if (~ $#* 0) { args = 'pod,deploy,sts,job' } ;
-exec kubectl get -n $namespace $args
+exec kg -n $namespace $args
 

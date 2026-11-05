@@ -2,5 +2,5 @@
 #KUBECONFIG=$home/.kube/config
 args = $* ;
 if (~ $#* 0) { args = 'pod,deploy,sts,job' } ;
-exec kubectl get -A $args
+exec kg -A $args
 
