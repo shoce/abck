@@ -1,4 +1,5 @@
 #!/bin/rc
-KUBECONFIG=/root/.kube/config
-args = $*
+#KUBECONFIG=$home/.kube/config
+args = $* ;
 exec helm ls -a -A $args
+

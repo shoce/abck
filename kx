@@ -1,6 +1,6 @@
 #!/bin/rc
-KUBECONFIG=/root/.kube/config
-# скрипт для упрощённого переключения между контекстами kubernetes
+#KUBECONFIG=$home/.kube/config
+# for easy switching between kubernetes contexts
 if (~ $#* 0) {
 	exec k config current-context
 }
@@ -18,5 +18,6 @@ if (~ $#* 2) {
 		exec k config set-context $2 --cluster=k0s --user=root --namespace=$2
 	}
 }
-echo usage: $0 [-l | context-name | -d context-name]
+echo USAGE $0 [-l | context-name | -d context-name]
 exit 1
+

@@ -1,3 +1,5 @@
 #!/bin/rc
-KUBECONFIG=/root/.kube/config
-exec k0s kubectl krew $*
+#KUBECONFIG=$home/.kube/config
+args = $* ;
+exec kubectl krew $args
+

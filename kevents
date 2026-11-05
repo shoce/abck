@@ -1,3 +1,5 @@
 #!/bin/rc
-KUBECONFIG=/root/.kube/config
-k0s kubectl events $* | tail -n 22
+#KUBECONFIG=$home/.kube/config
+args = $* ;
+exec kubectl events $args | tail -n 22
+

@@ -1,3 +1,5 @@
 #!/bin/rc
-KUBECONFIG=/root/.kube/config
-exec k0s kubectl exec -q $*
+#KUBECONFIG=$home/.kube/config
+args = $* ;
+exec kubectl exec -q $args
+

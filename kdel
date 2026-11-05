@@ -1,4 +1,5 @@
 #!/bin/rc
-KUBECONFIG=/root/.kube/config
-args = $*
-exec k0s kubectl delete $args
+#KUBECONFIG=$home/.kube/config
+args = $* ;
+exec kubectl delete $args
+
