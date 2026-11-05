@@ -1,27 +1,28 @@
 # https://docs.github.com/en/actions/learn-github-actions/contexts
-name: release
+
+name: "release"
+
 permissions:
-  contents: write
+  contents: "write"
+
 on:
   push:
     branches:
-      - main
+      - "main"
 
 jobs:
-
+  
   build-push:
-    runs-on: ubuntu-latest
+    
+    runs-on: "ubuntu-latest"
     steps:
 
-      - name: version
-        run: |
-          VERSION=$( date '+%y.%m%d.%H%M' | sed 's/\.0*/./g' )
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - uses: "shoce/action-version@v1"
 
       # https://github.com/actions/checkout/
-      - uses: actions/checkout@v4
+      - uses: "actions/checkout@v4"
 
-      - name: archive
+      - name: "archive"
         run: |
           mkdir -p /tmp/${{ github.event.repository.name }}/
           cp * /tmp/${{ github.event.repository.name }}/
@@ -30,29 +31,29 @@ jobs:
           echo '/tmp/${{ github.event.repository.name }}/:'
           ls -l -a
 
-      - name: release notes
+      - name: "release notes"
         run: |
           {
-          echo 'install:'
+          echo "INSTALL"
           echo '```'
           echo 'curl -s -S -L https://github.com/shoce/${{ github.event.repository.name }}/releases/download/${{ env.VERSION }}/${{ github.event.repository.name }}.tar.gz | tar -v -z -C /usr/local/bin/ -x '
           echo '```'
           echo
-          echo 'install latest:'
+          echo "INSTALL LATEST"
           echo '```'
           echo 'curl -s -S -L https://github.com/shoce/${{ github.event.repository.name }}/releases/latest/download/${{ github.event.repository.name }}.tar.gz | tar -v -z -C /usr/local/bin/ -x '
           echo '```'
           } >/tmp/${{ github.event.repository.name }}/release.notes..text
 
-      - name: gh release
-        shell: bash
+      - name: "gh release"
+        shell: "bash"
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create ${{ env.VERSION }} /tmp/${{ github.event.repository.name }}/${{ github.event.repository.name }}.tar.gz --notes-file /tmp/${{ github.event.repository.name }}/release.notes..text
 
-      - name: gh release clean
-        shell: bash
+      - name: "gh release clean"
+        shell: "bash"
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
