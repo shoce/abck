@@ -4,5 +4,5 @@ sortby = '{.metadata.creationTimestamp}' ;
 columns = 'created:.metadata.creationTimestamp,ns:.metadata.namespace,name:.metadata.name,status:.status.phase,ready:.status.containerStatuses[*].ready,restarts:.status.containerStatuses[*].restartCount'
 args = $* ;
 if (~ $#* 0) { args = 'pod,deploy,sts,job' } ;
-exec kubectl get --sort-by=$sortby -o custom-columns:$columns $args
+exec kubectl get --sort-by=$sortby -o custom-columns=$columns $args
 
