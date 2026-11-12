@@ -1,6 +1,6 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-namespace = $1 ; shift ;
-args = $* ;
-exec kubectl events -n $namespace $args | tail -n 22
+namespace = $1 ; shift ; 
+args = $* ; 
+exec k events -n $namespace $args | tail -n 22
 

@@ -1,5 +1,5 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-args = $* ;
+args = $* ; 
 k top pod --containers=true --sort-by=cpu $args
 

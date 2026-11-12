@@ -1,6 +1,6 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-args = $* ;
+args = $* ; 
 if (~ $#* 0) { args = 'pod,deploy,sts,job' } ;
 exec kg -A $args
 

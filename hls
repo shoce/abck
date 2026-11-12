@@ -1,5 +1,5 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-args = $* ;
+args = $* ; 
 exec helm ls --date --time-format '2006:0102:1504:Z0700' --all $args
 

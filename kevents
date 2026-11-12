@@ -1,5 +1,5 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-args = $* ;
-exec kubectl events $args | tail -n 22
+args = $* ; 
+exec k events $args | tail -n 22
 

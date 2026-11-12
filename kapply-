@@ -1,0 +1,5 @@
+#!/bin/rc
+#KUBECONFIG=$home/.kube/config
+args = $* ; 
+exec k apply -f - $args
+

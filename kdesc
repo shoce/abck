@@ -1,5 +1,5 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-args = $* ;
-exec kubectl describe $args
+args = $* ; 
+exec k describe $args
 

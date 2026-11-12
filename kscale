@@ -1,6 +1,6 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-replicas = $1 ; shift ;
+replicas = $1 ; shift ; 
 args = $* ; 
-exec kubectl scale --replicas=$replicas $args
+exec k scale --replicas=$replicas $args
 

@@ -1,5 +1,5 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-args = $* ;
-exec kubectl logs --tail=22 $args
+args = $* ; 
+exec k logs --tail=22 $args
 

@@ -1,5 +1,5 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
 jsonpath = '{range .items[*]} {.metadata.namespace} {"\t"} {.metadata.name} {"\t"} {.spec.containers[*].image} {"\n"} {end}'
-exec kubectl get pods -o jsonpath=$jsonpath
+exec kg pods -o jsonpath=$jsonpath
 

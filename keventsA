@@ -1,4 +1,4 @@
 #!/bin/rc
 #KUBECONFIG=$home/.kube/config
-exec kubectl events -A | tail -n 22
+exec k events -A | tail -n 22
 
